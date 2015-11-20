@@ -16,6 +16,8 @@ case $i in
 esac
 done
 
+locale-gen en_US.UTF-8
+
 if [ "${FRAMEWORK}" == "mean" ]; then
     npm install -g bower grunt-cli
     cd ~
@@ -37,7 +39,6 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
     curl https://install.meteor.com/ | /bin/sh
     meteor create ${APPNAME}
     cd ${APPNAME}
-    export LC_ALL='en_US.UTF-8'
     meteor
 fi
 
