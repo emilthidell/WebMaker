@@ -17,7 +17,8 @@ RUN \
   apt-get update && \
   apt-get install -y mongodb-org git curl build-essential openssl libssl-dev pkg-config wget g++ python nodejs npm
 
-VOLUME ["~"]
+RUN mkdir /webmaker
+VOLUME /webmaker
 
 RUN chmod +x /start
 
