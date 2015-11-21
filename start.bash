@@ -69,9 +69,9 @@ if [ "${TYPE}" == "node" ]; then
         echo "#!/bin/bash \
         cd ~ \
         curl https://install.meteor.com/ | /bin/sh \
-        meteor create ${APPNAME} \
-        cd ${APPNAME} \
-        meteor" > /webmaker/install
+        meteor create ~/${APPNAME} \
+        cd ~/${APPNAME} \
+        ~/meteor" > /webmaker/install
     fi
 fi
 
