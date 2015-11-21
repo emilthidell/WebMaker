@@ -1,4 +1,4 @@
-# NodeJS configured for several frameworks, use this image as a base image
+# WebMaker is configured with several frameworks, use this image as a base image
 # for your web projects. Environment vars is required in the app image
 #
 # Todo:
