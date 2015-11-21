@@ -80,6 +80,9 @@ if [ "${TYPE}" == "node" ]; then
         curl https://install.meteor.com/ | /bin/sh
         meteor create ${APPNAME}
         cd ${APPNAME}
+        mkdir -p tests/jasmine/server/unit
+        mkdir -p tests/jasmine/client/integration
+        meteor add sanjo:jasmine
         meteor" > /webmaker/install
     fi
 fi
