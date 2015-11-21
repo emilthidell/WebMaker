@@ -34,10 +34,10 @@ if [ "${TYPE}" == "php" ]; then
     apt-get install -y php5
 
     if [ "${FRAMEWORK}" == "laravel" ]; then
-
+        echo "Framework: Laravel"
     fi
     if [ "${FRAMEWORK}" == "wordpress" ]; then
-
+        echo "Framework: Wordpress"
     fi
 fi
 if [ "${TYPE}" == "node" ]; then

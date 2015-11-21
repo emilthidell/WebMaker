@@ -1,5 +1,5 @@
 # NodeJS configured for several frameworks, use this image as a base image
-# for NodeJS projects. Environment vars is required in the app image
+# for your web projects. Environment vars is required in the app image
 #
 # Todo:
 # Nginx
@@ -10,6 +10,7 @@
 #  - Phalcon
 #
 # NodeJS
+#  - Angular
 #  - Meteor
 #  - Sails
 #  - Mean
