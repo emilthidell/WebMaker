@@ -66,12 +66,12 @@ if [ "${TYPE}" == "node" ]; then
         sails lift" > /webmaker/install
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
-        echo "#!/bin/bash \
-        cd ~ \
-        curl https://install.meteor.com/ | /bin/sh \
-        meteor create ~/${APPNAME} \
-        cd ~/${APPNAME} \
-        ~/meteor" > /webmaker/install
+        echo "#!/bin/bash
+        cd ~
+        curl https://install.meteor.com/ | /bin/sh
+        meteor create ${APPNAME}
+        cd ${APPNAME}
+        meteor" > /webmaker/install
     fi
 fi
 
