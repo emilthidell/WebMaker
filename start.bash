@@ -6,6 +6,10 @@ case $i in
     TYPE="${i#*=}"
     shift # past argument=value
     ;;
+    -l=*|--locale=*)
+    LOCALE="${i#*=}"
+    shift # past argument=value
+    ;;
     -f=*|--framework=*)
     FRAMEWORK="${i#*=}"
     shift # past argument=value
@@ -20,12 +24,29 @@ case $i in
 esac
 done
 
-locale-gen en_US.UTF-8
+locale-gen ${LOCALE}
 
 if [ "${TYPE}" == "php" ]; then
 
+    apt-get update
+    apt-get install -y python-software-properties
+    apt-get update
+    apt-get install -y php5
+
+    if [ "${FRAMEWORK}" == "laravel" ]; then
+
+    fi
+    if [ "${FRAMEWORK}" == "wordpress" ]; then
+
+    fi
 fi
-if [ "${TYPE}" == "nodejs" ]; then
+if [ "${TYPE}" == "node" ]; then
+
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+    apt-get update
+    apt-get install -y mongodb-org git curl build-essential openssl libssl-dev pkg-config wget g++ python nodejs npm
+
     if [ "${FRAMEWORK}" == "mean" ]; then
         echo "#!/bin/bash \
         npm install -g bower grunt-cli
@@ -55,3 +76,5 @@ if [ "${TYPE}" == "nodejs" ]; then
 fi
 
 echo 'install script created...'
+
+/webmaker/install

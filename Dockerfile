@@ -1,23 +1,41 @@
 # NodeJS configured for several frameworks, use this image as a base image
 # for NodeJS projects. Environment vars is required in the app image
+#
+# Todo:
+# Nginx
+# Apache
+# PHP
+#  - Wordpress
+#  - Laravel
+#  - Phalcon
+#
+# NodeJS
+#  - Meteor
+#  - Sails
+#  - Mean
+#  - Ghost
+#
+
+# FROM Baseimage ubuntu
 FROM ubuntu
 
-ENV TYPE nodejs
-ENV PHP_VERSION v5.6.14
-ENV NODE_VERSION v4.2.2
+# ENV-TYPE: node/php
+ENV TYPE node
+
+# ENV-FRAMEWORK: wordpress/laravel/phalcon/meteor/sails/mean
 ENV FRAMEWORK meteor
+
+# ENV-APPNAME
 ENV APPNAME testapp
+
+# HTTPD: apache/nginx
+ENV HTTPD apache
+
+# ENV-LOCALE
+ENV LOCALE en_US.UTF-8
 
 # Add files.
 ADD start.bash /start
-
-# Install NodeJS
-RUN \
-
-  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
-  echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list && \
-  apt-get update && \
-  apt-get install -y mongodb-org git curl build-essential openssl libssl-dev pkg-config wget g++ python nodejs npm
 
 RUN mkdir /webmaker
 VOLUME /webmaker
@@ -28,4 +46,4 @@ RUN chmod +x /start
 EXPOSE 3000 1337
 
 # Start the install
-CMD /start --framework=$FRAMEWORK --type=$TYPE
+CMD /start --framework=$FRAMEWORK --type=$TYPE --appname=$APPNAME --locale=$LOCALE
