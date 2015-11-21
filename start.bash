@@ -46,7 +46,7 @@ if [ "${TYPE}" == "php" ]; then
       # Apache gets grumpy about PID files pre-existing
       rm -f /var/run/apache2/apache2.pid
 
-      exec apache2 -DFOREGROUND" > /tmp/install
+      exec apache2 -DFOREGROUND" > /webmaker/install
 
 fi
 if [ "${TYPE}" == "node" ]; then
@@ -64,7 +64,7 @@ if [ "${TYPE}" == "node" ]; then
         cd ${APPNAME}
         npm install
         bower --allow-root --config.interactive=false install
-        grunt" > /tmp/install
+        grunt" > /webmaker/install
     fi
     if [ "${FRAMEWORK}" == "sails" ]; then
         echo "#!/bin/bash
@@ -72,7 +72,7 @@ if [ "${TYPE}" == "node" ]; then
         cd ~
         sails new ${APPNAME}
         cd ${APPNAME}
-        sails lift" > /tmp/install
+        sails lift" > /webmaker/install
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
         echo "#!/bin/bash
@@ -83,10 +83,10 @@ if [ "${TYPE}" == "node" ]; then
         mkdir -p tests/jasmine/server/unit
         mkdir -p tests/jasmine/client/integration
         meteor add sanjo:jasmine
-        meteor" > /tmp/install
+        meteor" > /webmaker/install
     fi
 fi
 
-chmod +x /tmp/install
+chmod +x /webmaker/install
 
 echo 'install script created...'
