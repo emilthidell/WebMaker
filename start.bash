@@ -75,6 +75,8 @@ if [ "${TYPE}" == "node" ]; then
     fi
 fi
 
+chmod +x /webmaker/install
+
 echo 'install script created...'
 
 /webmaker/install
