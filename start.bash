@@ -39,6 +39,15 @@ if [ "${TYPE}" == "php" ]; then
     if [ "${FRAMEWORK}" == "wordpress" ]; then
         echo "Framework: Wordpress"
     fi
+
+    echo "#!/bin/bash
+      set -e
+
+      # Apache gets grumpy about PID files pre-existing
+      rm -f /var/run/apache2/apache2.pid
+
+      exec apache2 -DFOREGROUND" > /webmaker/install
+
 fi
 if [ "${TYPE}" == "node" ]; then
 
@@ -48,7 +57,7 @@ if [ "${TYPE}" == "node" ]; then
     apt-get install -y mongodb-org git curl build-essential openssl libssl-dev pkg-config wget g++ python nodejs npm
 
     if [ "${FRAMEWORK}" == "mean" ]; then
-        echo "#!/bin/bash \
+        echo "#!/bin/bash
         npm install -g bower grunt-cli
         cd ~
         git clone https://github.com/meanjs/mean.git ${APPNAME}
@@ -58,7 +67,7 @@ if [ "${TYPE}" == "node" ]; then
         grunt" > /webmaker/install
     fi
     if [ "${FRAMEWORK}" == "sails" ]; then
-        echo "#!/bin/bash \
+        echo "#!/bin/bash
         npm -g install sails
         cd ~
         sails new ${APPNAME}
@@ -78,5 +87,3 @@ fi
 chmod +x /webmaker/install
 
 echo 'install script created...'
-
-/webmaker/install
