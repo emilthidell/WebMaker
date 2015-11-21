@@ -2,6 +2,8 @@
 # for NodeJS projects. Environment vars is required in the app image
 FROM ubuntu
 
+ENV TYPE nodejs
+ENV PHP_VERSION v5.6.14
 ENV NODE_VERSION v4.2.2
 ENV FRAMEWORK meteor
 ENV APPNAME testapp
@@ -26,4 +28,4 @@ RUN chmod +x /start
 EXPOSE 3000 1337
 
 # Start the install
-CMD /start --framework=$FRAMEWORK
+CMD /start --framework=$FRAMEWORK --type=$TYPE
