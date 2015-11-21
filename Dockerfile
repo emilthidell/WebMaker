@@ -38,9 +38,6 @@ ENV LOCALE en_US.UTF-8
 # Add files.
 ADD start.bash /start
 
-RUN mkdir /webmaker
-VOLUME /webmaker
-
 RUN chmod +x /start
 
 # Expose ports. Ghost,Meteor:3000 Sails:1337
