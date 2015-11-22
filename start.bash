@@ -71,6 +71,7 @@ if [ "${TYPE}" == "node" ]; then
         sails lift" > /tmp/install
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
+        ls ~
         if [ ! -d "~/${APPNAME}" ]; then
             echo "#!/bin/bash
             cd ~
