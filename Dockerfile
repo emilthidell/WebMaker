@@ -20,9 +20,6 @@
 # FROM Baseimage ubuntu
 FROM ubuntu
 
-# VOLUME, add webmaker volume
-VOLUME /webmaker
-
 # ENV-TYPE: node/php
 ENV TYPE node
 
