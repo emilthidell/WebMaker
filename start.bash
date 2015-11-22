@@ -71,17 +71,23 @@ if [ "${TYPE}" == "node" ]; then
         sails lift" > /tmp/install
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
-        echo "#!/bin/bash
-        cd ~
-        /usr/bin/curl https://install.meteor.com/ | /bin/sh
-        meteor create ${APPNAME}
-        cd ${APPNAME}
-        mkdir -p tests/jasmine/server/unit
-        mkdir -p tests/jasmine/client/integration
-        meteor add sanjo:jasmine
-        meteor add velocity:html-reporter
-        meteor remove autopublish
-        meteor" > /tmp/install
+        if [ ! -d "~/${APPNAME}" ]; then
+            echo "#!/bin/bash
+            cd ~
+            /usr/bin/curl https://install.meteor.com/ | /bin/sh
+            meteor create ${APPNAME}
+            cd ${APPNAME}
+            mkdir -p tests/jasmine/server/unit
+            mkdir -p tests/jasmine/client/integration
+            meteor add sanjo:jasmine
+            meteor add velocity:html-reporter
+            meteor remove autopublish
+            meteor" > /tmp/install
+        else
+            echo "#!/bin/bash
+            cd ~/${APPNAME}
+            meteor" > /tmp/install
+        fi
     fi
 fi
 
