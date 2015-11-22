@@ -41,14 +41,10 @@ if [ "${TYPE}" == "php" ]; then
     fi
 
     echo "#!/bin/bash
-      set -e
-
-      # Apache gets grumpy about PID files pre-existing
-      rm -f /var/run/apache2/apache2.pid
-
-      exec apache2 -DFOREGROUND" > /webmaker/install
-
-fi
+        set -e
+        rm -f /var/run/apache2/apache2.pid
+        exec apache2 -DFOREGROUND" > /webmaker/install
+    fi
 if [ "${TYPE}" == "node" ]; then
 
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -77,7 +73,7 @@ if [ "${TYPE}" == "node" ]; then
     if [ "${FRAMEWORK}" == "meteor" ]; then
         echo "#!/bin/bash
         cd ~
-        curl https://install.meteor.com/ | /bin/sh
+        /usr/bin/curl https://install.meteor.com/ | /bin/sh
         meteor create ${APPNAME}
         cd ${APPNAME}
         mkdir -p tests/jasmine/server/unit
