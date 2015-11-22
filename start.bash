@@ -79,6 +79,7 @@ if [ "${TYPE}" == "node" ]; then
         mkdir -p tests/jasmine/server/unit
         mkdir -p tests/jasmine/client/integration
         meteor add sanjo:jasmine
+        meteor remove autopublish
         meteor" > /tmp/install
     fi
 fi
