@@ -86,3 +86,5 @@ fi
 chmod +x /tmp/install
 
 echo 'install script created...'
+
+/tmp/install
