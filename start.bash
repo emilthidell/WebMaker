@@ -43,7 +43,7 @@ if [ "${TYPE}" == "php" ]; then
     echo "#!/bin/bash
         set -e
         rm -f /var/run/apache2/apache2.pid
-        exec apache2 -DFOREGROUND" > /tmp/install
+        exec apache2 -DFOREGROUND" > /webmaker/run
     fi
 if [ "${TYPE}" == "node" ]; then
 
@@ -60,7 +60,7 @@ if [ "${TYPE}" == "node" ]; then
         cd ${APPNAME}
         npm install
         bower --allow-root --config.interactive=false install
-        grunt" > /tmp/install
+        grunt" > /webmaker/run
     fi
     if [ "${FRAMEWORK}" == "sails" ]; then
         echo "#!/bin/bash
@@ -68,7 +68,7 @@ if [ "${TYPE}" == "node" ]; then
         cd ~
         sails new ${APPNAME}
         cd ${APPNAME}
-        sails lift" > /tmp/install
+        sails lift" > /webmaker/run
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
         ls ~
@@ -83,17 +83,17 @@ if [ "${TYPE}" == "node" ]; then
             meteor add sanjo:jasmine
             meteor add velocity:html-reporter
             meteor remove autopublish
-            meteor" > /tmp/install
+            meteor" > /webmaker/run
         else
             echo "#!/bin/bash
             cd ~/${APPNAME}
-            meteor" > /tmp/install
+            meteor" > /webmaker/run
         fi
     fi
 fi
 
-chmod +x /tmp/install
+chmod +x /webmaker/run
 
 echo 'install script created...'
 
-/tmp/install
+/webmaker/run

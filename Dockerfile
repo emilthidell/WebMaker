@@ -35,7 +35,7 @@ ENV HTTPD apache
 # ENV-LOCALE
 ENV LOCALE en_US.UTF-8
 
-VOLUME "~/"
+VOLUME /webmaker
 
 # Add files.
 ADD start.bash /start
