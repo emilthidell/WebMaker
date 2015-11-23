@@ -24,7 +24,7 @@ FROM ubuntu
 ENV TYPE node
 
 # ENV-FRAMEWORK: wordpress/laravel/phalcon/meteor/sails/mean
-ENV FRAMEWORK meteor
+ENV FRAMEWORK ionic
 
 # ENV-APPNAME
 ENV APPNAME testapp
@@ -39,6 +39,9 @@ VOLUME /webmaker
 
 # Add files.
 ADD start.bash /start
+
+# Add app folder.
+ADD app /tmp/app
 
 RUN chmod +x /start
 

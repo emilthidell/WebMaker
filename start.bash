@@ -71,7 +71,6 @@ if [ "${TYPE}" == "node" ]; then
         sails lift" > /webmaker/run
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
-        ls ~
         if [ ! -d "/webmaker/${APPNAME}" ]; then
             echo "#!/bin/bash
             cd /webmaker
@@ -89,6 +88,31 @@ if [ "${TYPE}" == "node" ]; then
             cd /webmaker/${APPNAME}
             meteor" > /webmaker/run
         fi
+    fi
+    if [ "${FRAMEWORK}" == "ionic" ]; then
+        echo "#!/bin/bash" > /webmaker/run
+        if [ ! -d "/webmaker/${APPNAME}" ]; then
+            echo "
+            cd /webmaker
+            /usr/bin/curl https://install.meteor.com/ | /bin/sh
+            meteor create ${APPNAME}" >> /webmaker/run
+        fi
+
+        echo "
+        cd /webmaker
+        /usr/bin/curl https://install.meteor.com/ | /bin/sh
+        meteor create ${APPNAME}
+        cd ${APPNAME}
+        mkdir -p tests/jasmine/server/unit
+        mkdir -p tests/jasmine/client/integration
+        cp -r /tmp/app/* /webmaker/${APPNAME}/
+        meteor add sanjo:jasmine
+        meteor add velocity:html-reporter
+        meteor remove blaze-html-templates
+        meteor remove ecmascript
+        meteor add angular
+        meteor add driftyco:ionic
+        meteor" >> /webmaker/run
     fi
 fi
 
