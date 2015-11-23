@@ -104,6 +104,12 @@ if [ "${TYPE}" == "node" ]; then
         meteor remove ecmascript
         meteor add angular
         meteor add driftyco:ionic
+        meteor add momentjs:moment
+        meteor add fourseven:scss
+        meteor add jasonaibrahim:angular-moment
+        meteor add check
+        meteor add reywood:publish-composite
+        meteor add okland:camera-ui
         meteor" >> /webmaker/run
     fi
 fi
