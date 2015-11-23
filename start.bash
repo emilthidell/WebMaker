@@ -90,15 +90,7 @@ if [ "${TYPE}" == "node" ]; then
         fi
     fi
     if [ "${FRAMEWORK}" == "ionic" ]; then
-        echo "#!/bin/bash" > /webmaker/run
-        if [ ! -d "/webmaker/${APPNAME}" ]; then
-            echo "
-            cd /webmaker
-            /usr/bin/curl https://install.meteor.com/ | /bin/sh
-            meteor create ${APPNAME}" >> /webmaker/run
-        fi
-
-        echo "
+        echo "#!/bin/bash
         cd /webmaker
         /usr/bin/curl https://install.meteor.com/ | /bin/sh
         meteor create ${APPNAME}
