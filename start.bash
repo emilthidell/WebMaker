@@ -55,7 +55,7 @@ if [ "${TYPE}" == "node" ]; then
     if [ "${FRAMEWORK}" == "mean" ]; then
         echo "#!/bin/bash
         npm install -g bower grunt-cli
-        cd ~
+        cd /webmaker
         git clone https://github.com/meanjs/mean.git ${APPNAME}
         cd ${APPNAME}
         npm install
@@ -65,16 +65,16 @@ if [ "${TYPE}" == "node" ]; then
     if [ "${FRAMEWORK}" == "sails" ]; then
         echo "#!/bin/bash
         npm -g install sails
-        cd ~
+        cd /webmaker
         sails new ${APPNAME}
         cd ${APPNAME}
         sails lift" > /webmaker/run
     fi
     if [ "${FRAMEWORK}" == "meteor" ]; then
         ls ~
-        if [ ! -d "~/${APPNAME}" ]; then
+        if [ ! -d "/webmaker/${APPNAME}" ]; then
             echo "#!/bin/bash
-            cd ~
+            cd /webmaker
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             meteor create ${APPNAME}
             cd ${APPNAME}
@@ -86,7 +86,7 @@ if [ "${TYPE}" == "node" ]; then
             meteor" > /webmaker/run
         else
             echo "#!/bin/bash
-            cd ~/${APPNAME}
+            cd /webmaker/${APPNAME}
             meteor" > /webmaker/run
         fi
     fi
