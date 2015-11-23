@@ -83,14 +83,12 @@ if [ "${TYPE}" == "node" ]; then
             cd ${APPNAME}
             cp -r /tmp/app/* /webmaker/${APPNAME}/
             ${FRAMEWORKPACK}
-            meteor update --release ${FRAMEWORKVER}
             meteor" > /webmaker/run
         else
             echo "#!/bin/bash
             cd /webmaker
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             cd /webmaker/${APPNAME}
-            meteor update --release ${FRAMEWORKVER}
             meteor" > /webmaker/run
         fi
     fi
