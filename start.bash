@@ -14,6 +14,10 @@ case $i in
     FRAMEWORK="${i#*=}"
     shift # past argument=value
     ;;
+    -fv=*|--frameworkver=*)
+    FRAMEWORKVER="${i#*=}"
+    shift # past argument=value
+    ;;
     -n=*|--name=*)
     APPNAME="${i#*=}"
     shift # past argument=value
@@ -77,48 +81,16 @@ if [ "${TYPE}" == "node" ]; then
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             meteor create ${APPNAME}
             cd ${APPNAME}
-            mkdir -p tests/jasmine/server/unit
-            mkdir -p tests/jasmine/client/integration
-            meteor add sanjo:jasmine
-            meteor add velocity:html-reporter
-            meteor remove autopublish
-            meteor" > /webmaker/run
-        else
-            echo "#!/bin/bash
-            cd /webmaker/${APPNAME}
-            meteor" > /webmaker/run
-        fi
-    fi
-    if [ "${FRAMEWORK}" == "ionic" ]; then
-        if [ ! -d "/webmaker/${APPNAME}" ]; then
-            echo "#!/bin/bash
-            cd /webmaker
-            /usr/bin/curl https://install.meteor.com/ | /bin/sh
-            meteor create ${APPNAME}
-            cd ${APPNAME}
             cp -r /tmp/app/* /webmaker/${APPNAME}/
-
-            meteor remove blaze-html-templates
-            meteor remove ecmascript
-            meteor remove autopublish
-
-            meteor add angular
-            meteor add driftyco:ionic
-            meteor add momentjs:moment
-            meteor add fourseven:scss
-            meteor add jasonaibrahim:angular-moment
-            meteor add check
-            meteor add accounts-password
-            meteor add reywood:publish-composite
-            meteor add okland:camera-ui
-            meteor update
+            ${FRAMEWORKPACK}
+            meteor update --release ${FRAMEWORKVER}
             meteor" > /webmaker/run
         else
             echo "#!/bin/bash
             cd /webmaker
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             cd /webmaker/${APPNAME}
-            meteor update
+            meteor update --release ${FRAMEWORKVER}
             meteor" > /webmaker/run
         fi
     fi
