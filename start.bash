@@ -111,13 +111,13 @@ if [ "${TYPE}" == "node" ]; then
             meteor add accounts-password
             meteor add reywood:publish-composite
             meteor add okland:camera-ui
-            meteor" >> /webmaker/run
+            meteor" > /webmaker/run
         else
             echo "#!/bin/bash
             cd /webmaker
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             cd /webmaker/${APPNAME}
-            meteor" >> /webmaker/run
+            meteor" > /webmaker/run
         fi
     fi
 fi
