@@ -90,29 +90,35 @@ if [ "${TYPE}" == "node" ]; then
         fi
     fi
     if [ "${FRAMEWORK}" == "ionic" ]; then
-        echo "#!/bin/bash
-        cd /webmaker
-        /usr/bin/curl https://install.meteor.com/ | /bin/sh
-        meteor create ${APPNAME}
-        cd ${APPNAME}
-        mkdir -p tests/jasmine/server/unit
-        mkdir -p tests/jasmine/client/integration
-        cp -r /tmp/app/* /webmaker/${APPNAME}/
+        if [ ! -d "/webmaker/${APPNAME}" ]; then
+            echo "#!/bin/bash
+            cd /webmaker
+            /usr/bin/curl https://install.meteor.com/ | /bin/sh
+            meteor create ${APPNAME}
+            cd ${APPNAME}
+            cp -r /tmp/app/* /webmaker/${APPNAME}/
 
-        meteor remove blaze-html-templates
-        meteor remove ecmascript
-        meteor remove autopublish
-        
-        meteor add angular
-        meteor add driftyco:ionic
-        meteor add momentjs:moment
-        meteor add fourseven:scss
-        meteor add jasonaibrahim:angular-moment
-        meteor add check
-        meteor add accounts-password
-        meteor add reywood:publish-composite
-        meteor add okland:camera-ui
-        meteor" >> /webmaker/run
+            meteor remove blaze-html-templates
+            meteor remove ecmascript
+            meteor remove autopublish
+
+            meteor add angular
+            meteor add driftyco:ionic
+            meteor add momentjs:moment
+            meteor add fourseven:scss
+            meteor add jasonaibrahim:angular-moment
+            meteor add check
+            meteor add accounts-password
+            meteor add reywood:publish-composite
+            meteor add okland:camera-ui
+            meteor" >> /webmaker/run
+        else
+            echo "#!/bin/bash
+            cd /webmaker
+            /usr/bin/curl https://install.meteor.com/ | /bin/sh
+            cd /webmaker/${APPNAME}
+            meteor" >> /webmaker/run
+        fi
     fi
 fi
 
