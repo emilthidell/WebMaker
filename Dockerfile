@@ -24,7 +24,7 @@ FROM ubuntu
 ENV TYPE node
 
 # ENV-FRAMEWORK: wordpress/laravel/phalcon/meteor/sails/mean
-ENV FRAMEWORK ionic
+ENV FRAMEWORK meteor
 
 # ENV-FRAMEWORKVER: 1.0
 ENV FRAMEWORKVER 1.2.1
