@@ -101,6 +101,8 @@ if [ "${TYPE}" == "node" ]; then
 
         meteor remove blaze-html-templates
         meteor remove ecmascript
+        meteor remove autopublish
+        
         meteor add angular
         meteor add driftyco:ionic
         meteor add momentjs:moment
