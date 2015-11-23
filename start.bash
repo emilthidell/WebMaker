@@ -98,7 +98,7 @@ if [ "${TYPE}" == "node" ]; then
         mkdir -p tests/jasmine/server/unit
         mkdir -p tests/jasmine/client/integration
         cp -r /tmp/app/* /webmaker/${APPNAME}/
-        
+
         meteor remove blaze-html-templates
         meteor remove ecmascript
         meteor add angular
@@ -107,6 +107,7 @@ if [ "${TYPE}" == "node" ]; then
         meteor add fourseven:scss
         meteor add jasonaibrahim:angular-moment
         meteor add check
+        meteor add accounts-password
         meteor add reywood:publish-composite
         meteor add okland:camera-ui
         meteor" >> /webmaker/run
