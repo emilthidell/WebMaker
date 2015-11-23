@@ -111,12 +111,14 @@ if [ "${TYPE}" == "node" ]; then
             meteor add accounts-password
             meteor add reywood:publish-composite
             meteor add okland:camera-ui
+            meteor update
             meteor" > /webmaker/run
         else
             echo "#!/bin/bash
             cd /webmaker
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             cd /webmaker/${APPNAME}
+            meteor update
             meteor" > /webmaker/run
         fi
     fi
@@ -124,6 +126,6 @@ fi
 
 chmod +x /webmaker/run
 
-echo 'install script created...'
+echo 'run script created...'
 
 /webmaker/run
