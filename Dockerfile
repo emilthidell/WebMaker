@@ -22,7 +22,7 @@ ENV NODEVER 0.12.6
 ENV FRAMEWORKVER 1.0
 
 # ENV-FRAMEWORKPACKS: <frameworks pack install script>
-ENV FRAMEWORKPACK "meteor add iron:router meteor add fourseven:scss@2.0.0 meteor add meteoric:ionic-sass meteor add meteoric:ionicons-sass meteor add meteoric:ionic"
+ENV FRAMEWORKPACK "meteor add iron:router && meteor add fourseven:scss@2.0.0 && meteor add meteoric:ionic-sass && meteor add meteoric:ionicons-sass && meteor add meteoric:ionic"
 
 # ENV-APPNAME
 ENV APPNAME testapp
