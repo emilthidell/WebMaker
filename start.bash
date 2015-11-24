@@ -71,4 +71,6 @@ chmod +x /webmaker/run
 
 echo 'run script created...'
 
+cat /webmaker/run
+
 /webmaker/run
