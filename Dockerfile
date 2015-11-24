@@ -1,14 +1,7 @@
-# WebMaker is configured with several frameworks, use this image as a base image
-# for your web projects. Environment vars is required in the app image
+# WebMaker is configured with several frameworks for NodeJS, use this image as a base image
+# for your nodejs projects
 #
 # Todo:
-# Nginx
-# Apache
-# PHP
-#  - Wordpress
-#  - Laravel
-#  - Phalcon
-#
 # NodeJS
 #  - Angular
 #  - Meteor #DONE
@@ -56,12 +49,12 @@ RUN apt-get -y update && apt-get -y install \
     python \
     make \
     build-essential
-RUN wget https://nodejs.org/dist/v$NODEVER/node-v$NODEVER-linux-x64.tar.gz && \
-    tar -zxf node-v$NODEVER-linux-x64.tar.gz -C /usr/local && \
-    ln -sf node-v$NODEVER-linux-x64 /usr/local/node && \
+RUN wget https://nodejs.org/dist/v0.12.6/node-v0.12.6-linux-x64.tar.gz && \
+    tar -zxf node-v0.12.6-linux-x64.tar.gz -C /usr/local && \
+    ln -sf node-v0.12.6-linux-x64 /usr/local/node && \
     ln -sf /usr/local/node/bin/npm /usr/local/bin/ && \
     ln -sf /usr/local/node/bin/node /usr/local/bin/ && \
-    rm node-v$NODEVER-linux-x64.tar.gz
+    rm node-v0.12.6-linux-x64.tar.gz
 
 # Start the install
 CMD /start --framework=$FRAMEWORK --type=$TYPE --appname=$APPNAME --locale=$LOCALE
