@@ -54,6 +54,7 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         cd /webmaker
         /usr/bin/curl https://install.meteor.com/ | /bin/sh
         mkdir ${APPNAME}
+        meteor create ${APPNAME}
         cp -r /tmp/app/* /webmaker/${APPNAME}
         cd ${APPNAME}
         ${FRAMEWORKPACK}
@@ -72,5 +73,6 @@ chmod +x /webmaker/run
 echo 'run script created...'
 
 cat /webmaker/run
+ls /webmaker/app/
 
 /webmaker/run
