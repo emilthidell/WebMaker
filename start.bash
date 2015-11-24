@@ -73,6 +73,6 @@ chmod +x /webmaker/run
 echo 'run script created...'
 
 cat /webmaker/run
-ls /webmaker/app/
+ls /webmaker/testapp/
 
 /webmaker/run
