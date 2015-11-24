@@ -18,6 +18,10 @@ case $i in
     FRAMEWORKVER="${i#*=}"
     shift # past argument=value
     ;;
+    -fp=*|--frameworkpack=*)
+    FRAMEWORKPACK="${i#*=}"
+    shift # past argument=value
+    ;;
     -n=*|--name=*)
     APPNAME="${i#*=}"
     shift # past argument=value
@@ -51,10 +55,6 @@ if [ "${TYPE}" == "php" ]; then
     fi
 if [ "${TYPE}" == "node" ]; then
 
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
-    apt-get update
-    apt-get install -y mongodb-org git curl build-essential openssl libssl-dev pkg-config wget g++ python nodejs npm
 
     if [ "${FRAMEWORK}" == "mean" ]; then
         echo "#!/bin/bash
@@ -81,7 +81,7 @@ if [ "${TYPE}" == "node" ]; then
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
             meteor create ${APPNAME}
             cd ${APPNAME}
-            cp -r /tmp/app/* /webmaker/${APPNAME}/
+            ${FRAMEWORKPACK}
             meteor" > /webmaker/run
         else
             echo "#!/bin/bash

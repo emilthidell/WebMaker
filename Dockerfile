@@ -30,7 +30,7 @@ ENV FRAMEWORK meteor
 ENV FRAMEWORKVER 1.2.1
 
 # ENV-FRAMEWORKPACKS: <frameworks pack install script>
-ENV FRAMEWORKVER "meteor remove blaze-html-templates && meteor remove ecmascript && meteor remove autopublish && meteor add angular@1.2.0-rc.5 && meteor add driftyco:ionic && meteor add momentjs:moment && meteor add fourseven:scss && meteor add jasonaibrahim:angular-moment && meteor add check && meteor add accounts-password && meteor add accounts-phone && meteor add reywood:publish-composite && meteor add okland:camera-ui"
+ENV FRAMEWORKPACK "meteor add iron:router meteor add fourseven:scss@2.0.0 meteor add meteoric:ionic-sass meteor add meteoric:ionicons-sass meteor add meteoric:ionic"
 
 # ENV-APPNAME
 ENV APPNAME testapp
@@ -47,7 +47,7 @@ VOLUME /webmaker
 ADD start.bash /start
 
 # Add app folder.
-ADD app /tmp/app
+#ADD app /tmp/app
 
 RUN chmod +x /start
 
