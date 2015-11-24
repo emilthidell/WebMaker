@@ -79,7 +79,8 @@ if [ "${TYPE}" == "node" ]; then
             echo "#!/bin/bash
             cd /webmaker
             /usr/bin/curl https://install.meteor.com/ | /bin/sh
-            meteor create ${APPNAME}
+            mkdir ${APPNAME}
+            cp -r /tmp/app/* /webmaker/${APPNAME}
             cd ${APPNAME}
             ${FRAMEWORKPACK}
             meteor" > /webmaker/run

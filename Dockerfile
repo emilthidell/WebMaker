@@ -47,7 +47,7 @@ VOLUME /webmaker
 ADD start.bash /start
 
 # Add app folder.
-#ADD app /tmp/app
+ADD app /tmp/app
 
 RUN chmod +x /start
 
