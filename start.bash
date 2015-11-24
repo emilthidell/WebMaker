@@ -82,7 +82,6 @@ if [ "${TYPE}" == "node" ]; then
             meteor create ${APPNAME}
             cd ${APPNAME}
             cp -r /tmp/app/* /webmaker/${APPNAME}/
-            ${FRAMEWORKPACK}
             meteor" > /webmaker/run
         else
             echo "#!/bin/bash

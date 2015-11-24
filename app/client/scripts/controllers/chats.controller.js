@@ -5,7 +5,7 @@ angular
 function ChatsCtrl ($scope, $ionicModal) {
   $scope.chats = $scope.$meteorCollection(Chats, false);
 
-  $ionicModal.fromTemplateUrl('client/templates/new-chat.ng.html', {
+  $ionicModal.fromTemplateUrl('client/templates/new-chat.html', {
     scope: $scope
   }).then(function (modal) {
     $scope.modal = modal;
