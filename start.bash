@@ -50,6 +50,7 @@ if [ "${FRAMEWORK}" == "sails" ]; then
 fi
 if [ "${FRAMEWORK}" == "meteor" ]; then
     if [ ! -d "/webmaker/${APPNAME}" ]; then
+        echo "Creating first time script..."
         echo "#!/bin/bash
         cd /webmaker
         /usr/bin/curl https://install.meteor.com/ | /bin/sh
@@ -60,6 +61,7 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         ${FRAMEWORKPACK}
         meteor" > /webmaker/run
     else
+        echo "The app already exists, sync /tmp/app with /webmaker/${APPNAME}..."
         echo "#!/bin/bash
         cd /webmaker
         /usr/bin/curl https://install.meteor.com/ | /bin/sh
@@ -70,9 +72,8 @@ fi
 
 chmod +x /webmaker/run
 
-echo 'run script created...'
+echo 'Run script created successfully...'
 
-cat /webmaker/run
-ls /webmaker/${APPNAME}/
+echo 'Executing script...'
 
 /webmaker/run
