@@ -53,7 +53,6 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         echo "#!/bin/bash
         cd /webmaker
         /usr/bin/curl https://install.meteor.com/ | /bin/sh
-        mkdir ${APPNAME}
         meteor create ${APPNAME}
         cp -r /tmp/app/* /webmaker/${APPNAME}
         cd ${APPNAME}
