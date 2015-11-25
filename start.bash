@@ -55,7 +55,7 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         /usr/bin/curl https://install.meteor.com/ | /bin/sh
         meteor create ${APPNAME}
         cd ${APPNAME}
-        rm ${APPNAME}/${APPNAME}.*
+        rm ${APPNAME}.*
         cp -r /tmp/app/* /webmaker/${APPNAME}
         ${FRAMEWORKPACK}
         meteor" > /webmaker/run
