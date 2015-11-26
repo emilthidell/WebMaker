@@ -1,5 +1,3 @@
 .build*
 .DS_Store
 .meteor
-!meteoric_ionic-sass
-!meteoric_ionicons-sass
