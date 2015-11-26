@@ -22,7 +22,7 @@ ENV NODEVER 0.12.6
 ENV FRAMEWORKVER 1.0
 
 # ENV-FRAMEWORKPACKS: <frameworks pack install script>
-ENV FRAMEWORKPACK "meteor add iron:router && meteor add fourseven:scss && meteor add meteoric:ionic-sass && meteor add meteoric:ionicons-sass && meteor add meteoric:ionic && meteor add aldeed:simple-schema"
+ENV FRAMEWORKPACK "meteor add meteor-platform && meteor add autopublish && meteor add insecure && meteor add accounts-password && meteor add iron:router && meteor add zimme:iron-router-active && meteor add anti:fake && meteor add matb33:collection-hooks && meteor add aldeed:collection2 && meteor add aldeed:autoform && meteor add meteoric:ionic-sass@0.3.0 && meteor add meteoric:ionicons-sass@0.1.7 && meteor add meteoric:ionic@0.1.19 && meteor add meteoric:autoform-ionic && meteor add useraccounts:ionic"
 
 # ENV-APPNAME
 ENV APPNAME testapp
