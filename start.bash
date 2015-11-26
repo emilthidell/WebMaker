@@ -58,8 +58,8 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         cd ${APPNAME}
         rm ${APPNAME}.*
         cp -rfp /tmp/app/* /webmaker/${APPNAME}
-        ${FRAMEWORKPACK}
         sh prebuild/scripts/prebuild.bash
+        ${FRAMEWORKPACK}
         meteor" > /webmaker/run
     else
         echo "The app already exists, sync /tmp/app with /webmaker/${APPNAME}..."
