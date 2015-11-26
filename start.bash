@@ -57,7 +57,8 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         meteor create ${APPNAME}
         cd ${APPNAME}
         rm ${APPNAME}.*
-        cp -rf /tmp/app/* /webmaker/${APPNAME}
+        cp -rfp /tmp/app/* /webmaker/${APPNAME}
+        ${FRAMEWORKPACK}
         sh prebuild/scripts/prebuild.bash
         meteor" > /webmaker/run
     else
