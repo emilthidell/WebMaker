@@ -53,13 +53,8 @@ if [ "${FRAMEWORK}" == "meteor" ]; then
         echo "Creating first time script..."
         echo "#!/bin/bash
         cd /webmaker
-        /usr/bin/curl https://install.meteor.com/ >> meteor.sh
-        sed -i -e 's/1.2.1/1.1.0.3/g' meteor.sh
-        /bin/sh meteor.sh
-        rm meteor.sh
-        meteor create ${APPNAME}
+        /usr/bin/curl https://install.meteor.com/ | /bin/sh
         cd ${APPNAME}
-        rm ${APPNAME}.*
         cp -r /tmp/app/* /webmaker/${APPNAME}
         sh prebuild/scripts/prebuild.bash
         meteor" > /webmaker/run
