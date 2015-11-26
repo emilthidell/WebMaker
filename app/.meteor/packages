@@ -12,6 +12,7 @@ zimme:iron-router-active
 anti:fake
 matb33:collection-hooks
 aldeed:collection2
+aldeed:simple-schema
 aldeed:autoform
 meteoric:ionic-sass@0.3.0
 meteoric:ionicons-sass@0.1.7
