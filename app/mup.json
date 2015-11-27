@@ -4,7 +4,8 @@
     {
       "host": "82.196.14.225",
       "username": "root",
-      "password": "password"
+      "password": "password",
+      "sshOptions": { "port" : 49154 }
     }
   ],
 

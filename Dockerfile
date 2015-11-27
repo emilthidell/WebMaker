@@ -30,6 +30,14 @@ ENV APPNAME testapp
 # ENV-LOCALE
 ENV LOCALE en_US.UTF-8
 
+#ENV-DEPLOYUSER
+ENV DEPLOYUSER
+
+#ENV-DEPLOYPASS
+ENV DEPLOYPASS
+
+RUN adduser admin && echo password | passwd admin --group sudo --stdin
+
 VOLUME /webmaker
 
 # Add files.
@@ -41,7 +49,7 @@ ADD app /tmp/app
 RUN chmod +x /start
 
 # Expose ports. Ghost,Meteor:3000 Sails:1337
-EXPOSE 22 3000 1337
+EXPOSE 2222 3000 1337
 
 RUN apt-get -y update && apt-get -y install \
     wget \
