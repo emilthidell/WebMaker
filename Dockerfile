@@ -30,12 +30,6 @@ ENV APPNAME testapp
 # ENV-LOCALE
 ENV LOCALE en_US.UTF-8
 
-#ENV-DEPLOYUSER
-ENV DEPLOYUSER
-
-#ENV-DEPLOYPASS
-ENV DEPLOYPASS
-
 RUN adduser admin && echo password | passwd admin --group sudo --stdin
 
 VOLUME /webmaker
