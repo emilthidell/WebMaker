@@ -41,7 +41,7 @@ ADD app /tmp/app
 RUN chmod +x /start
 
 # Expose ports. Ghost,Meteor:3000 Sails:1337
-EXPOSE 3000 1337
+EXPOSE 22 3000 1337
 
 RUN apt-get -y update && apt-get -y install \
     wget \

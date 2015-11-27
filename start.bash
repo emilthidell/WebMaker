@@ -49,9 +49,7 @@ if [ "${FRAMEWORK}" == "sails" ]; then
     sails lift" > /webmaker/run
 fi
 if [ "${FRAMEWORK}" == "meteor" ]; then
-    if [ ! -d "/webmaker/${APPNAME}" ]; then
-        mup setup
-    fi
+    mup setup
 fi
 
 chmod +x /webmaker/run
