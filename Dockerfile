@@ -50,6 +50,7 @@ RUN apt-get -y update && apt-get -y install \
     make \
     build-essential \
     curl
+
 RUN wget https://nodejs.org/dist/v0.12.6/node-v0.12.6-linux-x64.tar.gz && \
     tar -zxf node-v0.12.6-linux-x64.tar.gz -C /usr/local && \
     ln -sf node-v0.12.6-linux-x64 /usr/local/node && \
@@ -57,5 +58,6 @@ RUN wget https://nodejs.org/dist/v0.12.6/node-v0.12.6-linux-x64.tar.gz && \
     ln -sf /usr/local/node/bin/node /usr/local/bin/ && \
     rm node-v0.12.6-linux-x64.tar.gz
 
+RUN curl https://install.meteor.com/ | /bin/sh
 # Start the install
 CMD /start --framework=$FRAMEWORK --type=$TYPE --appname=$APPNAME --locale=$LOCALE

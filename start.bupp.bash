@@ -50,8 +50,35 @@ if [ "${FRAMEWORK}" == "sails" ]; then
 fi
 if [ "${FRAMEWORK}" == "meteor" ]; then
     if [ ! -d "/webmaker/${APPNAME}" ]; then
-        mup setup
+        echo "Creating first time script..."
+        echo "#!/bin/bash
+        cd /webmaker
+        /usr/bin/curl https://install.meteor.com/ | /bin/sh
+        meteor create ${APPNAME}
+        cd ${APPNAME}
+        rm ${APPNAME}.*
+        cp -rfp /tmp/app/* /webmaker/${APPNAME}
+        echo 'DEBUG # 1'
+        sh prebuild/scripts/prebuild.bash
+        ${FRAMEWORKPACK}
+        ls .meter/local/build/programs/server/assets/packages/meteoric_ionic-sass
+        echo 'DEBUG # 2'
+        ls .meter/local/build/programs/server/assets/packages/meteoric_ionicons-sass
+        meteor" > /webmaker/run
+    else
+        echo "The app already exists, sync /tmp/app with /webmaker/${APPNAME}..."
+        echo "#!/bin/bash
+        cd /webmaker
+        /usr/bin/curl https://install.meteor.com/ | /bin/sh
+        cd /webmaker/${APPNAME}
+        meteor" > /webmaker/run
     fi
 fi
 
 chmod +x /webmaker/run
+
+echo 'Run script created successfully...'
+
+echo 'Executing script...'
+
+/webmaker/run
