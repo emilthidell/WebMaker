@@ -1,0 +1,25 @@
+<template name="account">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">User Account</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#if currentUser.profile.name}}
+        <div class="padding">
+          Logged in as<br>
+          <strong>{{currentUser.profile.name}}</strong><br>
+          Picture: http://graph.facebook.com/{{user.services.facebook.id}}/picture/?type=large
+        </div>
+        <div class="padding">
+          <button class="button button-positive button-block" data-action="logout">Log Out</button>
+        </div>
+      {{else}}
+        {{> atForm}}
+      {{/if}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
