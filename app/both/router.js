@@ -13,7 +13,9 @@ Meteor.startup(function () {
 
 Router.map(function() {
   this.route('index', {path: '/'});
-  this.route('account', {path: '/account'});
+  this.route('account');
+  this.route('createEvent', {path: '/create'});
+  this.route('comingEvents', {path: '/coming'});
   this.route('actionSheet');
   this.route('backdrop');
   this.route('forms', {

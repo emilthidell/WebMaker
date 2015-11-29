@@ -1,21 +1,6 @@
 <template name="layout">
   {{#ionBody}}
-    {{#if isAndroid}}
-        {{#ionTabs style="android" class="tabs-background-positive tabs-color-light"}}
-          {{> ionTab title="Index" path="index" icon="android-home"}}
-          {{> ionTab title="Tab 2" path="account" icon="android-star"}}
-          {{> ionTab title="Tab 3" path="tabs.three" icon="heart"}}
-          {{> ionTab title="Tab 4" path="tabs.four" icon="gear-b"}}
-        {{/ionTabs}}
-      {{else}}
-        {{#ionTabs style="ios"}}
-          {{> ionTab title="Index" path="index" iconOff="ios-home-outline" iconOn="ios-home"}}
-          {{> ionTab title="Tab 2" path="account" iconOff="ios-star-outline" iconOn="ios-star"}}
-          {{> ionTab title="Tab 3" path="tabs.three" iconOff="ios-heart-outline" iconOn="ios-heart"}}
-          {{> ionTab title="Tab 4" path="tabs.four" iconOff="ios-gear-outline" iconOn="ios-gear"}}
-        {{/ionTabs}}
-      {{/if}}
-    {{/ionBody}}
+
     {{#ionSideMenuContainer}}
 
       {{#ionSideMenus}}
@@ -59,4 +44,6 @@
       {{/ionSideMenuContent}}
 
     {{/ionSideMenuContainer}}
+
+  {{/ionBody}}
 </template>

@@ -9,10 +9,11 @@
   {{#ionView}}
     {{#ionContent}}
       {{#if currentUser.profile.name}}
-        <div class="padding">
-          Logged in as<br>
-          <strong>{{currentUser.profile.name}}</strong><br>
-          Picture: http://graph.facebook.com/{{user.services.facebook.id}}/picture/?type=large
+        <div class="padding accountLoggedin">
+            <div class="center">
+              <div class="circular"><img src="{{pic}}" alt="{{currentUser.profile.name}}"></div>
+            </div>
+            <h2>{{currentUser.profile.name}}</h2>
         </div>
         <div class="padding">
           <button class="button button-positive button-block" data-action="logout">Log Out</button>

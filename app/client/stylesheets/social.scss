@@ -1,0 +1,42 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+$socialBorderColor: #DE4F4F;
+$socialImageWidth: 280px;
+$socialImageBorder: 140px;  // 50% of $socialImageWidth
+
+.accountLoggedin {
+    text-align: center;
+}
+
+.accountLoggedin .circular {
+	width: $socialImageWidth;
+    height: $socialImageWidth;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    @include border-radius($socialImageBorder);
+    opacity: 0.8;
+    border: 10px solid $socialBorderColor;
+}
+
+.accountLoggedin .center {
+    width:$socialImageWidth;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.fbthumbnail {
+    width: 32px;
+    height: 32px !important;
+    @include border-radius(16px);
+    border-radius: 16px;
+    border: 1px solid $socialBorderColor;
+    margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+<template name="createEvent">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Create Event</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{> quickForm collection="Posts" doc=post id="edit-form" type="update" buttonContent="Save Post"}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
