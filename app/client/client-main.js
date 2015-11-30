@@ -1,3 +1,6 @@
+Meteor.subscribe("userData");
+Meteor.subscribe("notifications");
+
 Meteor.startup(function() {
     Template.account.helpers({
         'pic': function(){
@@ -19,4 +22,13 @@ Meteor.startup(function() {
             }
         }
     });
+    setTimeout(function () {
+        if (Notifications.find({}).count()) {
+            var notificationsArray = Notifications.find({}).fetch();
+            notificationsArray.forEach(function(entry) {
+                sAlert.info('<b>'+entry.title+'</b><br>'+entry.body, {html: true});
+            });
+        }
+    }, 2000);
+
 });

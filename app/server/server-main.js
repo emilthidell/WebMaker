@@ -19,5 +19,17 @@ Accounts.onCreateUser(function(options, user) {
     options.profile.thumb   = getFbPicture(user.services.facebook.accessToken,  25);
     user.profile = options.profile; // We still want the default 'profile' behavior.
   }
+
   return user;
+});
+
+Meteor.publish("userData", function () {
+    return Meteor.users.find({_id: this.userId},
+        {fields: {'services': 1 }
+    });
+});
+
+Meteor.publish("notifications", function () {
+    // this.userId
+    return Notifications.find({ userid: 1 , unread: true});
 });
